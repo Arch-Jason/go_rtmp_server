@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Live Stream</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+<video id="video" controls></video>
+<script>
+  var video = document.getElementById('video');
+  var hls = new Hls();
+  hls.loadSource('stream.m3u8');
+  hls.attachMedia(video);
+  hls.on(Hls.Events.MANIFEST_PARSED,function() {
+    video.play();
+  });
+</script>
+</body>
+</html>
